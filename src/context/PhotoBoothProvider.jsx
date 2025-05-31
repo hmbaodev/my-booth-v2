@@ -21,13 +21,13 @@ export const PhotoBoothProvider = ({ children }) => {
   const [capturedImages, setCapturedImages] = useState([]);
   const [stripWidth, setStripWidth] = useState(0);
   const [displayMode, setDisplayMode] = useState("flex flex-col gap-2");
-  const [aspect, setAspect] = useState("1/0.8");
+  const [aspect, setAspect] = useState("1/0.65");
 
   useEffect(() => {
     if (selectedFrame) {
       switch (selectedFrame.id) {
         case "4-vertical":
-          setAspect("1/0.8");
+          setAspect("1/0.65");
           setStripWidth(200);
           setDisplayMode("flex flex-col gap-2");
           break;
@@ -37,7 +37,7 @@ export const PhotoBoothProvider = ({ children }) => {
           setDisplayMode("grid grid-cols-2 gap-4");
           break;
         default:
-          setAspect("1/0.8");
+          setAspect("1/0.65");
           setStripWidth(200);
           setDisplayMode("flex flex-col gap-2");
           break;
