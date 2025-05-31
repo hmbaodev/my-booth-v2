@@ -1,7 +1,14 @@
+import { useEffect } from "react";
 import Capture from "../components/capture";
-import Selectors from "../components/selectors";
+import { usePhotoBooth } from "../context/PhotoBoothProvider";
 
 const Booth = () => {
+  const { aspect } = usePhotoBooth();
+
+  useEffect(() => {
+    alert(aspect);
+  }, [])
+
   return (
     <div>
       <Capture />
