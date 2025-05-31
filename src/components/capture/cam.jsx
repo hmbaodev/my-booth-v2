@@ -80,11 +80,13 @@ const Cam = () => {
         <Webcam
           ref={webcamRef}
           screenshotFormat="image/png"
-          className={`relative scale-x-[-1] rounded-md border-2 border-black object-cover`}
+          className={`relative scale-x-[-1] rounded-md border-2 border-black object-cover w-full`}
           videoConstraints={{
             aspectRatio:
               parseFloat(aspect.split("/")[0]) /
               parseFloat(aspect.split("/")[1]),
+            width: 640,
+            height: 480,
           }}
         />
         {countdown !== null && (
