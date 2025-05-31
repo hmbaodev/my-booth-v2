@@ -21,6 +21,8 @@ const Cam = () => {
 
   const navigate = useNavigate();
 
+  const isMobile = window.innerWidth < 768;
+
   const capture = useCallback(() => {
     if (!webcamRef.current) return;
     const imageSrc = webcamRef.current.getScreenshot();
@@ -81,12 +83,20 @@ const Cam = () => {
           ref={webcamRef}
           screenshotFormat="image/png"
           className={`relative scale-x-[-1] rounded-md border-2 border-black object-cover w-full`}
+          // videoConstraints={{
+          //   aspectRatio:
+          //     parseFloat(aspect.split("/")[0]) /
+          //     parseFloat(aspect.split("/")[1]),
+          // }}
           videoConstraints={{
-            aspectRatio:
-              parseFloat(aspect.split("/")[0]) /
-              parseFloat(aspect.split("/")[1]),
+            aspectRatio: isMobile
+              ? parseFloat(aspect.split("/")[1]) /
+                parseFloat(aspect.split("/")[0])
+              : parseFloat(aspect.split("/")[0]) /
+                parseFloat(aspect.split("/")[1]),
           }}
         />
+
         {countdown !== null && (
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-white flex items-center justify-center rounded-full bg-black/40 aspect-square p-2">
