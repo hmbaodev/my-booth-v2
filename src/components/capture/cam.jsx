@@ -85,8 +85,6 @@ const Cam = () => {
             aspectRatio:
               parseFloat(aspect.split("/")[0]) /
               parseFloat(aspect.split("/")[1]),
-            width: 640,
-            height: 480,
           }}
         />
         {countdown !== null && (
