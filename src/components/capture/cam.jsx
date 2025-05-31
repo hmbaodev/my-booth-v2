@@ -6,7 +6,7 @@ import Webcam from "react-webcam";
 import Selectors from "../selectors";
 import { usePhotoBooth } from "../../context/PhotoBoothProvider";
 
-const Camera = () => {
+const Cam = () => {
   const webcamRef = useRef(null);
   const {
     capturedImages,
@@ -115,4 +115,4 @@ const Camera = () => {
   );
 };
 
-export default Camera;
+export default Cam;
