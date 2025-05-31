@@ -1,13 +1,13 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import Capture from "../components/capture";
-import { usePhotoBooth } from "../context/PhotoBoothProvider";
+// import { usePhotoBooth } from "../context/PhotoBoothProvider";
 
 const Booth = () => {
-  const { aspect } = usePhotoBooth();
+  // const { aspect } = usePhotoBooth();
 
-  useEffect(() => {
-    alert(aspect);
-  }, [])
+  // useEffect(() => {
+  //   alert(aspect);
+  // }, [])
 
   return (
     <div>
