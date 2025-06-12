@@ -37,6 +37,7 @@ const ExportStrip = () => {
       const canvas = await html2canvas(stripRef.current, {
         useCORS: true,
         backgroundColor: null,
+        scale: 1,
       });
 
       const dataURL = canvas.toDataURL("image/png");
