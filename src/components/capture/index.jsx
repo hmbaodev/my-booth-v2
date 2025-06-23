@@ -1,7 +1,8 @@
 import QrCode from "./qr-code";
-import Cam from "./cam";
+// import Cam from "./cam";
 import CapturedImages from "./captured-images";
 import MobileCapturedImages from "./mobile-captured-images";
+import CamNoLib from "./cam-no-lib";
 
 const Capture = () => {
   return (
@@ -10,7 +11,8 @@ const Capture = () => {
         {/* QR code link to instagram */}
         <QrCode />
         {/* Web cam */}
-        <Cam />
+        {/* <Cam /> */}
+        <CamNoLib />
         {/* captured images */}
         <CapturedImages />
       </div>

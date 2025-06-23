@@ -10,7 +10,7 @@ const FrameSelector = () => {
 
   return (
     <button
-      className="border border-gray-300 p-3 rounded-md flex items-center gap-2 relative"
+      className="border border-gray-300 p-3 rounded-md flex items-center gap-2 relative cursor-pointer"
       onClick={() => setOpenOptions(!openOptions)}
     >
       <div className="flex items-center">
@@ -27,7 +27,7 @@ const FrameSelector = () => {
           {frameOptions.map((frame) => (
             <div
               key={frame.id}
-              className="flex items-center py-2 hover:bg-gray-100 rounded-md"
+              className="flex items-center py-2 hover:bg-gray-100 rounded-md cursor-pointer"
               onClick={() => {
                 setSelectedFrame(frame);
                 setOpenOptions(false);

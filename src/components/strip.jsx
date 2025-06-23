@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { usePhotoBooth } from "../context/PhotoBoothProvider";
 
-const Strip = ({ stripColor, capturedImages }) => {
+const Strip = ({ stripColor, capturedImages, showFrame }) => {
   const { stripWidth, aspect, displayMode, selectedFrame } = usePhotoBooth();
   const [concept, setConcept] = useState({
     bg: "",
@@ -12,20 +12,20 @@ const Strip = ({ stripColor, capturedImages }) => {
     switch (selectedFrame.id) {
       case "4-vertical":
         setConcept({
-          bg: "/vertical/bg.png",
-          sticker: "/vertical/sticker.png",
+          bg: "/vertical/bg.svg",
+          sticker: "/vertical/sticker.svg",
         });
         break;
       case "4-grid":
         setConcept({
-          bg: "/grid/bg.png",
-          sticker: "/grid/sticker.png",
+          bg: "/grid/bg.svg",
+          sticker: "/grid/sticker.svg",
         });
         break;
       default:
         setConcept({
-          bg: "/vertical/bg.png",
-          sticker: "/vertical/sticker.png",
+          bg: "/vertical/bg.svg",
+          sticker: "/vertical/sticker.svg",
         });
         break;
     }
@@ -54,34 +54,61 @@ const Strip = ({ stripColor, capturedImages }) => {
         ))}
       </div>
       <div
-        className="mt-3 text-center w-full"
-        style={{
-          visibility: "hidden",
-        }}
+        className={`mt-3 text-center w-full ${
+          showFrame ? "invisible" : "visible"
+        }`}
       >
-        <div className="font-semibold text-sm">BeautyPlus Photo Booth</div>
-        <div className="text-xs mt-1">&copy; 2025 BP</div>
+        <p className="font-semibold text-sm">ChekkiCam</p>
+        <p className="text-xs mt-1">&copy; 2025 BP</p>
       </div>
-      {/* Bg Gradient */}
-      <div
-        className="absolute left-0 top-0 w-full h-full z-[1]"
-        style={{
-          backgroundImage: `url(${concept.bg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
-      />
-      {/* Sticker */}
-      <div
-        className="absolute left-0 top-0 w-full h-full z-[3]"
-        style={{
-          backgroundImage: `url(${concept.sticker})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
-      />
+      {showFrame && (
+        <>
+          {/* 
+          {concept.bg && (
+            <img
+              src={concept.bg}
+              alt=""
+              className="absolute left-0 top-0 w-full h-full z-[1] object-cover"
+              loading="eager"
+            />
+          )} 
+           {concept.sticker && (
+            <img
+              src={concept.sticker}
+              alt=""
+              className="absolute left-0 top-0 w-full h-full z-[3] object-cover"
+              loading="eager"
+            />
+          )}*/}
+
+          {concept.bg && (
+            <div
+              style={{
+                backgroundImage: `url('${concept.bg}')`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+              }}
+              alt=""
+              className="absolute left-0 top-0 w-full h-full z-[1] object-cover"
+              loading="eager"
+            />
+          )}
+          {concept.sticker && (
+            <div
+              style={{
+                backgroundImage: `url('${concept.sticker}')`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+              }}
+              alt=""
+              className="absolute left-0 top-0 w-full h-full z-[3] object-cover"
+              loading="eager"
+            />
+          )}
+        </>
+      )}
     </div>
   );
 };

@@ -12,12 +12,12 @@ const DelaySelector = () => {
 
   return (
     <button
-      className="border border-gray-300 p-3 rounded-md flex items-center gap-2 relative"
+      className="border border-gray-300 p-3 rounded-md flex items-center gap-2 relative cursor-pointer"
       onClick={() => setOpenOptions(!openOptions)}
     >
       <div className="flex items-center gap-1">
         <PiClockCountdownLight size={20} />
-        <p>{currentOption}s Delay</p>
+        <p>Cách {currentOption} giây</p>
       </div>
       {openOptions ? (
         <MdKeyboardArrowUp size={20} />
@@ -29,14 +29,14 @@ const DelaySelector = () => {
           {delayOptions.map((delay) => (
             <div
               key={delay}
-              className="flex items-center py-2 hover:bg-gray-100 rounded-md gap-1"
+              className="flex items-center py-2 hover:bg-gray-100 rounded-md gap-1 cursor-pointer"
               onClick={() => {
                 setSelectedDelay(delay);
                 setOpenOptions(false);
               }}
             >
               <PiClockCountdownLight size={20} />
-              <p>{delay}s Delay</p>
+              <p>Cách {delay} giây</p>
             </div>
           ))}
         </div>

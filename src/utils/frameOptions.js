@@ -1,13 +1,13 @@
 const frameOptions = [
   {
     id: "4-vertical",
-    name: "4 Vertical",
+    name: "Khung dọc",
     image: "/4-vertical.png",
     amount_of_images: 4,
   },
   {
     id: "4-grid",
-    name: "4 Grid",
+    name: "Khung ngang",
     image: "/4-grid.png",
     amount_of_images: 4,
   },

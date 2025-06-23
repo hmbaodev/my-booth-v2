@@ -18,18 +18,19 @@ const ImageSelector = () => {
   };
 
   const handleButtonClick = () => {
-    fileInputRef.current?.click();
+    // fileInputRef.current?.click();
+    alert("Tính năng này tụi mình đang phát triển! Chưa thể sử dụng ❤️");
   };
 
   return (
     <div className="flex items-center gap-4">
       <button
-        className="border border-gray-300 p-3 rounded-md flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:from-purple-600 hover:to-pink-600 transition-all duration-300"
+        className="border border-gray-300 p-3 rounded-md flex items-center gap-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white hover:from-purple-600 hover:to-blue-600 transition-all duration-300"
         onClick={handleButtonClick}
         type="button"
       >
         <PiImageSquareLight size={20} />
-        <span>{selectedImage ? "Change Image" : "Upload Image"}</span>
+        <span>Tải hình lên</span>
       </button>
       <input
         type="file"
