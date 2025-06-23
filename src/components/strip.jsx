@@ -33,7 +33,7 @@ const Strip = ({ stripColor, capturedImages, showFrame }) => {
 
   return (
     <div
-      className="border shadow p-4 flex flex-col items-center relative"
+      className={`photo-strip shadow p-4 flex flex-col items-center relative `}
       style={{ width: stripWidth, backgroundColor: stripColor }}
     >
       <div className={displayMode}>
@@ -63,7 +63,6 @@ const Strip = ({ stripColor, capturedImages, showFrame }) => {
       </div>
       {showFrame && (
         <>
-          {/* 
           {concept.bg && (
             <img
               src={concept.bg}
@@ -71,37 +70,10 @@ const Strip = ({ stripColor, capturedImages, showFrame }) => {
               className="absolute left-0 top-0 w-full h-full z-[1] object-cover"
               loading="eager"
             />
-          )} 
-           {concept.sticker && (
-            <img
-              src={concept.sticker}
-              alt=""
-              className="absolute left-0 top-0 w-full h-full z-[3] object-cover"
-              loading="eager"
-            />
-          )}*/}
-
-          {concept.bg && (
-            <div
-              style={{
-                backgroundImage: `url('${concept.bg}')`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-              }}
-              alt=""
-              className="absolute left-0 top-0 w-full h-full z-[1] object-cover"
-              loading="eager"
-            />
           )}
           {concept.sticker && (
-            <div
-              style={{
-                backgroundImage: `url('${concept.sticker}')`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-              }}
+            <img
+              src={concept.sticker}
               alt=""
               className="absolute left-0 top-0 w-full h-full z-[3] object-cover"
               loading="eager"

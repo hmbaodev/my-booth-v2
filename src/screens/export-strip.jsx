@@ -4,6 +4,7 @@ import { FaDownload } from "react-icons/fa";
 
 import { usePhotoBooth } from "../context/PhotoBoothProvider";
 import Strip from "../components/strip";
+import StripV2 from "../components/strip-v2";
 
 const customColors = [
   "#FF69B4",
@@ -81,7 +82,6 @@ const ExportStrip = () => {
           capturedImages={capturedImages}
           showFrame={hasFrame}
         />
-        {/* custom background goes here */}
       </div>
 
       {/* Right Panel */}
@@ -115,36 +115,38 @@ const ExportStrip = () => {
         </div>
 
         {/* Frame Color Selector */}
-        {!hasFrame && <div>
-          <p className="mb-4 font-medium text-center">Chọn màu khung</p>
-          <div className="grid grid-cols-8 gap-2">
-            {/* Custom color picker */}
-            <label
-              className={`w-7 h-7 cursor-pointer flex items-center justify-center`}
-            >
-              <input
-                type="color"
-                value={stripColor}
-                onChange={(e) => {
-                  setStripColor(e.target.value);
-                }}
-                className="opacity-0 absolute w-7 h-7"
-                style={{ cursor: "pointer" }}
-              />
-              <img src="/custom-color.png" alt="" />
-            </label>
-            {customColors.map((color) => (
-              <button
-                key={color}
-                className={`w-7 h-7 rounded-full border-2 ${
-                  stripColor === color ? "border-pink-500" : "border-black"
-                }`}
-                style={{ background: color }}
-                onClick={() => setStripColor(color)}
-              />
-            ))}
+        {!hasFrame && (
+          <div>
+            <p className="mb-4 font-medium text-center">Chọn màu khung</p>
+            <div className="grid grid-cols-8 gap-2">
+              {/* Custom color picker */}
+              <label
+                className={`w-7 h-7 cursor-pointer flex items-center justify-center`}
+              >
+                <input
+                  type="color"
+                  value={stripColor}
+                  onChange={(e) => {
+                    setStripColor(e.target.value);
+                  }}
+                  className="opacity-0 absolute w-7 h-7"
+                  style={{ cursor: "pointer" }}
+                />
+                <img src="/custom-color.png" alt="" />
+              </label>
+              {customColors.map((color) => (
+                <button
+                  key={color}
+                  className={`w-7 h-7 rounded-full border-2 ${
+                    stripColor === color ? "border-pink-500" : "border-black"
+                  }`}
+                  style={{ background: color }}
+                  onClick={() => setStripColor(color)}
+                />
+              ))}
+            </div>
           </div>
-        </div>}
+        )}
 
         {/* Download/Retake Buttons */}
         <div className="flex gap-4">
